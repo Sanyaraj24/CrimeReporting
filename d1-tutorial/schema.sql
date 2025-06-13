@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS crime_reports (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    incident_date DATETIME NOT NULL,
+    address TEXT NOT NULL,
+    district TEXT NOT NULL,
+    landmark TEXT NOT NULL,
+    pincode VARCHAR(10) NOT NULL,
+    latitude DECIMAL(10,8),
+    longitude DECIMAL(11,8),
+    crime_type TEXT NOT NULL,
+    severity_level TEXT NOT NULL,
+    weapon_used TEXT,
+    estimated_loss DECIMAL(10,2),
+    num_victims INTEGER DEFAULT 1,
+    victim_injury_level TEXT,
+    victim_age_range TEXT,
+    victim_gender TEXT,
+    num_suspects INTEGER,
+    suspect_description TEXT,
+    suspect_vehicle_description TEXT,
+    suspect_direction_of_travel TEXT,
+    num_witnesses INTEGER,
+    physical_evidence_description TEXT,
+    reporter_contact VARCHAR(255),
+    is_anonymous INTEGER DEFAULT 0
+);
+ALTER TABLE crime_reports ADD COLUMN image_urls TEXT;
+

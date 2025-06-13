@@ -1,0 +1,11 @@
+name = "d1-tutorial"
+main = "src/index.js"
+compatibility_date = "2025-02-04"
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "database"
+database_id = "fbb23c86-a463-4f2d-80ea-470110c1edb6"
