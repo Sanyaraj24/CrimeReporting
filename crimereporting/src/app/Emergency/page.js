@@ -86,11 +86,7 @@ export default function EmergencyPage() {
         {/* Quick Action Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           {emergencyNumbers.slice(0, 3).map((service) => (
-            <button
-              key={service.name}
-              onClick={() => (window.location.href = `tel:${service.number}`)}
-              className="flex items-center justify-center gap-2 bg-[#1E1E1E] border border-[#404040] text-white py-4 px-6 rounded-lg hover:bg-[#2A2A2A] transition duration-200"
-            >
+            <button key={service.name}>
               {service.icon}
               {service.name} ({service.number})
             </button>
@@ -167,10 +163,7 @@ export default function EmergencyPage() {
               >
                 Live Chat
               </button>
-              <button
-                onClick={() => (window.location.href = "tel:100")}
-                className="border border-[#E74C3C] text-[#E74C3C] hover:bg-[#2A2A2A] py-3 px-6 rounded-lg transition-colors duration-200 font-medium flex-1 text-center"
-              >
+              <button className="border border-[#E74C3C] text-[#E74C3C] hover:bg-[#2A2A2A] py-3 px-6 rounded-lg transition-colors duration-200 font-medium flex-1 text-center">
                 Emergency Call
               </button>
             </div>

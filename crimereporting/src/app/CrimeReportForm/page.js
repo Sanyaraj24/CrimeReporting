@@ -1,12 +1,21 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import CrimeLocation from "./CrimeLocation";
+import dynamic from "next/dynamic";
 import UploadImage from "./FileUpload";
 import Spinner from "../Spinner.js";
+import { useRouter } from "next/navigation";
 //NOTE:Pass a callback from page.js to UploadImage to get those URLs and store them in page.js's state.
-
+//ERRORR----->When to use dynamic(..., { ssr: false })
+// Use it when:
+// A component depends on browser APIs (window, document, navigator, etc.)
+// using libraries like leaflet, chart.js, or video.js that don’t work on the server
+const CrimeLocation = dynamic(() => import("./CrimeLocation"), {
+  ssr: false,
+});
 const CrimeReportForm = () => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -771,9 +780,7 @@ const CrimeReportForm = () => {
                     <button
                       type="button"
                       className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      onClick={() => {
-                        if (window !== undefined) window.location.reload();
-                      }}
+                      onClick={() => router.refresh()}
                     >
                       Reset Form
                     </button>

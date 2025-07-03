@@ -16,7 +16,7 @@ const UploadImage = ({ onImagesSelected, onImagesUploaded ,resetImages}) => {
   const [btn,setBtn]=useState(true);
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef(null);
-  
+   
   useEffect(() => {
     if (resetImages) {
       // Clear all image-related states
